@@ -157,4 +157,11 @@ var friends = [{
      1,
      4
    ]
-},]
+}];
+
+//export the friends data
+module.exports = friends;
+
+
+
+
