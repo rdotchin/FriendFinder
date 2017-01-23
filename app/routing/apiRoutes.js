@@ -8,7 +8,8 @@ var comparisonNum = 500;
 
 //variable set to hold the number of the best friend to be returned
 var bestFriend;
-var currentDifference = 0;
+var difference = 0;
+var currentNumFriend = 0
 /*sets the required data from friends.js to the variable friends so it can be 
 called in app.get*/
 
@@ -27,46 +28,59 @@ module.exports = function(app){
 		//turns string into a number and pushes it in the userArray
 		for(var i = 0; i <req.body.scores.length; i++){
 			userArray.push(parseInt(req.body.scores[i]))
+
+			
 		}
 		
-	
-	
 		
-		//choose the friend array to compare to user
+	//choose the friend array to compare to user
 		function friendArray(){
-			var x = 0;
+			
 			//if there are not enough friends it will return bestFriend info
-			if(x > friendsData.lenght){
-				console.log(bestFriend);
-				return bestFriend
+			if(currentNumFriend < friendsData.length){
+				//reset current Difference;
+				currentDifference = 0;
+				console.log(friendsData[currentNumFriend]);
+				console.log("---------------")
+				compareScores(friendsData[currentNumFriend], currentNumFriend);
+				currentNumFriend +=1;
 			}
 			else {
 			//reset current Difference;
 			currentDifference = 0;
-			compareScores(friend[x], x);
+			/*compareScores(friend[x], x);*/
 			x +=1;
+			console.log(bestFriend);
+				return bestFriend
+			var x = 0;
 			}
 		}
-
+		
 		//compare user vs friend
 		function compareScores(friendArray, friendNum){
 			for(var i = 0; i < userArray.length; i++){
-				currentDifferent += Math.abs(friendArray.scores[i] - userArray[i]);
+				currentDifference += Math.abs(friendArray.scores[i] - userArray[i]);
 				
 			}
 			bestScore(currentDifference, friendNum);
+			console.log(currentDifference);
 		}
 
 		//if current friend score is less than previous he becomes the new best friend
 		function bestScore(difference, friendNum) {
 			if (difference < comparisonNum){
 				bestFriend = friendNum
-				friendArray();
+				console.log("best friend: "  + friendsData[bestFriend].name);
+				
 			}
 			else {
-				friendArray();
+				
 			}
 		}
+		friendArray();
+	
+		
+		
 
 
 
