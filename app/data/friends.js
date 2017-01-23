@@ -36,7 +36,7 @@ var friends = [{
 {
   "name":"John F. Kennedy",
   "photo":"https://www.google.com/webhp?sourceid=chrome-instant&ion=1&espv=2&ie=UTF-8#q=John+F.+Kennedy&stick=H4sIAAAAAAAAAG1SP2_UMBzFEn9at0NlUIdMEerAxCW2c7lITKAOCCok6MRyahInl8Q552JzufRjIKR-BJYO3ZgZuQ_AyMDGN2CkBf-MkNien_2e3-_ZO3ce7k7aSZCzJuT0yKjODwO_Vdr4xVmr3mm_E6qTwq-W_qLSRvXjFt27UdTZxqLyfLFFOzeI8T63kMty6vbnlpzRTWdhnKV6i_7ebelQDmBb9yV4zTK5Rfj3_lpLBnZsLgsLozJeuRCNBnbV1k6YxJTbRTQsAg2h6yidWZgNYQDSZUctpH05t1GTtOQSovYSIOvi2MKkCQp7OORTFsEIm_MWJh9buCRlHaSmLOxBt1630AcPB9Bxyp2FoY3roNa2MFNkYHY9n4U5Sxrry_KkdzKdQkmc19pV59h0FTFwa9wDsnLj4gT52tbJasobeImpLOAPRG2wcOFX7Dv6jPYOfvz8dt_7hN5ffvmKrhC-_VRoQz4ivPdGmFN1ovKqGMkFIh8QPniplBZyfC3kmRH5qSJH-O7x0lRmJB7e92wkNjy65WHsVuTtv2YvyHO8eyLaVPT6VUGeYPxMSSkyU6kleYwPPTLJHDH589-vHR_g__D7vwCIPvTwMQMAAA",
-  "scores":[1, 2, 5, 2, 1, 3, 5, 1, 3, 2]
+  "scores":[1, 2, 2, 2, 1, 2, 2, 1, 2, 2]
 },
 {
   "name":"Charles Darwin",
@@ -46,7 +46,7 @@ var friends = [{
 {
   "name":"Nelson Mandela",
   "photo":"https://www.google.com/imgres?imgurl=http://www.idainternational.org/wp-content/uploads/2015/04/Nelson-Mandela.jpg&imgrefurl=http://www.idainternational.org/ada/nelson-mandela/&h=900&w=779&tbnid=XaL_mqDQ7cPuKM:&vet=1&tbnh=186&tbnw=160&docid=I56eYk_8uVpKWM&itg=1&usg=__LWqfVYM2gAAlyMh9lh0RxqGSfT8=&sa=X&sqi=2&ved=0ahUKEwji_6Wcg8jRAhUIPCYKHXp8AggQ_B0IrwIwEw&ei=-HJ9WOKjA4j4mAH6-IlA",
-  "scores": [3, 1, 2, 5, 5, 4, 3, 2, 1, 4]
+  "scores": [1, 2, 2, 1, 2, 1, 2, 1, 1, 1]
 }
 ];
 

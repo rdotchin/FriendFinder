@@ -23,8 +23,12 @@ $('#submit-button').on('click', function(){
 	var currentURL = window.location.origin;
 
 	$.post(currentURL + "/api/friends", userData, function(data){
-		console.log("post works");
+		console.log(data);
 		console.log(data.name);
+		console.log(data.image);
+		$("#friend-name").append(data.name);
+		$("#friend-image").attr("src", data.photo);
+		$("#resultsModal").modal('show');
 		
 	});	
 

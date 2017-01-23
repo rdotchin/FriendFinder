@@ -1,15 +1,17 @@
+
+
 var path = require('path');
 //requires the data from the friends.js file that includes the friends variable
 var friendsData = require('../data/friends.js');
-//hold the userArray survey number results to compare to other scores
+//hold the userArray survey arrayNumber results to compare to other scores
 var userArray = []
-//starting number to compare different between the user score and the current friend
+//starting arrayNumber to compare different between the user score and the current friend
 var comparisonNum = 500;
 
-//variable set to hold the number of the best friend to be returned
+//variable set to hold the arrayNumber of the best friend to be returned
 var bestFriend;
 var difference = 0;
-var currentNumFriend = 0
+var arrayNum = 0
 /*sets the required data from friends.js to the variable friends so it can be 
 called in app.get*/
 
@@ -31,59 +33,73 @@ module.exports = function(app){
 
 			
 		}
+
 		
-		
-	//choose the friend array to compare to user
-		function friendArray(){
-			
-			//if there are not enough friends it will return bestFriend info
-			if(currentNumFriend < friendsData.length){
-				//reset current Difference;
-				currentDifference = 0;
-				console.log(friendsData[currentNumFriend]);
-				console.log("---------------")
-				compareScores(friendsData[currentNumFriend], currentNumFriend);
-				currentNumFriend +=1;
-			}
-			else {
-			//reset current Difference;
-			currentDifference = 0;
-			/*compareScores(friend[x], x);*/
-			x +=1;
-			console.log(bestFriend);
-				return bestFriend
-			var x = 0;
-			}
+	//variable set to hold the friendNumber of the best friend to be returned
+var bestFriend = 0;
+var difference = 0;
+var friendNum = 0;
+	console.log(friendsData.length);
+		function finalFriend(){
+			res.send(bestFriend);
+			reset();
+			console.log("final best friend" + bestFriend.name);
 		}
 		
+		
 		//compare user vs friend
-		function compareScores(friendArray, friendNum){
-			for(var i = 0; i < userArray.length; i++){
-				currentDifference += Math.abs(friendArray.scores[i] - userArray[i]);
-				
+		function compareScores(){
+			if(friendNum == friendsData.length ){
+				//once all friends are compared the function to return the details of the best friend is called
+				finalFriend();
 			}
-			bestScore(currentDifference, friendNum);
-			console.log(currentDifference);
+			else{
+			console.log("========================")
+			console.log("friendNum: " + friendNum)
+			difference = 0;
+			for(var i = 0; i < userArray.length; i++){
+				difference += Math.abs(friendsData[friendNum].scores[i] - userArray[i]);
+			}
+			console.log("comp friend: " + friendsData[friendNum].name);
+			console.log("diff " + difference)
+			bestScore(difference, friendNum);
+		}
 		}
 
 		//if current friend score is less than previous he becomes the new best friend
-		function bestScore(difference, friendNum) {
+		function bestScore(difference, friendfriendNum) {
+			friendNum +=1;
+			
 			if (difference < comparisonNum){
-				bestFriend = friendNum
-				console.log("best friend: "  + friendsData[bestFriend].name);
-				
-			}
-			else {
-				
+				bestFriend = friendsData[friendfriendNum]
+				comparisonNum = difference;
+				console.log("comp num " + comparisonNum)
+				console.log("current best friend : " + bestFriend.name)
+				/*friendNum += 1;*/
+				compareScores();	
+			} else {
+				console.log("current best friend : " + bestFriend.name)
+				console.log("comp num " + comparisonNum)
+				/*friendNum += 1;*/
+				compareScores();
 			}
 		}
-		friendArray();
-	
+		compareScores();
 		
-		
+		//push the users info to the friends array and reset all the variables to compare the next user
+		function reset(){
+			friendsData.push(req.body);
+			difference = 0;
+			arrayNum = 0;
+			comparisonNum = 500;
+			bestFriend;
+			userArray = [];
+		}
 
 
 
 	}); //app.post end
 
 } //modules.export end
+
+
