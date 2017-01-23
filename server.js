@@ -9,11 +9,13 @@ var PORT = process.env.PORT || 8080;
 
 //body-parser
 ////parse application/json
-app.use(express.static(__dirname + '/app/public'));
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.text());
 app.use(bodyParser.json({type:'application/vnd.api+json'}));
+//for app.js file to be used in survey.html
+app.use(express.static(__dirname + '/app/public'));
 
 //require apiRoutes.js and htmlRoutes.js from the routing folder
 require('./app/routing/apiRoutes.js')(app);
